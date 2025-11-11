@@ -4,18 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quick Team Join</title>
-  <style>
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    body { margin: 24px; }
-    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; max-width: 720px; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; }
-    input, button { padding: 10px 12px; border-radius: 8px; border: 1px solid #ccc; }
-    button { cursor: pointer; }
-    .teams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-    .team { border: 1px solid #eee; border-radius: 8px; padding: 10px; }
-    .muted { color: #666; }
-    .linkbox { background: #f8f8f8; padding: 10px; border-radius: 8px; word-break: break-all; }
-  </style>
+<style>
+  :root {
+    font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  body {
+    margin: 0;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a, #000);
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1, h3 {
+    color: #ffcc00;
+    text-shadow: 0 0 8px #ff6600;
+  }
+  a { color: #66ccff; }
+  .card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 760px;
+    margin: auto;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  }
+  input, button {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #1c1c1c;
+    color: #eee;
+  }
+  button {
+    background: linear-gradient(180deg, #333 0%, #111 100%);
+    cursor: pointer;
+  }
+  button:hover { background: linear-gradient(180deg, #444 0%, #222 100%); }
+  .teams {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .team {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .muted { color: #999; }
+  .linkbox {
+    background: rgba(40, 40, 40, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    word-break: break-all;
+  }
+</style>
+
 
   <!-- Firebase (modular) -->
   <script type="module">
@@ -179,40 +227,47 @@
 </head>
 <body>
   <div class="card">
-    <h1>Quick Team Join</h1>
-    <p class="muted">Make 3 teams instantly. Create a room, share the link, everyone clicks Join, and the app balances teams.</p>
+    <h1>⚓️ Swift Crew Joinin’! ☠️</h1>
+    <p>
+  Ahoy, ye salty dogs! 🏴‍☠️<br>
+  Scrawl yer name below, and our clever sea-sorcerin’ contraption shall cast ye into a crew o’ trivia buccaneers.<br>
+  No bribin’, no cheatin’—it’ll be fair as the tide herself!<br>
+  The gods of the deep shall decide yer fate… so hope they be in a merry mood! ⚓️💀
+</p>
 
-    <h3>1) Create or enter a room</h3>
+
+    <h3>1) ☠️ Start a New Room or Join One!</h3>
     <div class="row">
       <button id="create-room">Create new room</button>
-      <input id="room" placeholder="Room code (e.g., ABC123)" />
+      <input id="room" placeholder="Secret Ship Code (fer example: ABC123)" />
       <button id="reset-room" title="Clear members & counts for this room">Reset</button>
     </div>
     <div id="share" style="margin-top:10px;"></div>
 
-    <h3 style="margin-top:24px;">2) Join</h3>
+    <h3 style="margin-top:24px;">2) Hop Aboard</h3>
     <div class="row">
-      <input id="name" placeholder="Your nickname" />
-      <button id="join-btn">Join → Auto-assign</button>
+      <input id="name" placeholder="Yer Pirate Name" />
+      <button id="join-btn">Be Cast by the Fates! ⚓️</button>
     </div>
     <div id="status" style="margin-top:10px;"></div>
 
-    <h3 style="margin-top:24px;">Live teams</h3>
+    <h3 style="margin-top:24px;">💀 Ships Currently at Sea</h3>
     <div class="teams" id="roster">
       <div class="team">
-        <strong>Team 1</strong> — <span id="c1">0</span>
+        <strong>The Drunken Barnacles 🍺🦪</strong> — <span id="c1">0</span>
         <ul id="t1" style="margin:8px 0 0 18px;"></ul>
       </div>
       <div class="team">
-        <strong>Team 2</strong> — <span id="c2">0</span>
+        <strong>The Booty Hunters 🍑💰</strong> — <span id="c2">0</span>
         <ul id="t2" style="margin:8px 0 0 18px;"></ul>
       </div>
       <div class="team">
-        <strong>Team 3</strong> — <span id="c3">0</span>
+        <strong>The Salty Parrots 🦜</strong> — <span id="c3">0</span>
         <ul id="t3" style="margin:8px 0 0 18px;"></ul>
       </div>
     </div>
   </div>
 </body>
 </html>
+
 
